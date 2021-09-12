@@ -66,12 +66,12 @@
 
 if (isset($_POST['submit'])) {
   $category = $_POST['category'];
-  $sql = "INSERT INTO category VALUES ('','$category')";
-  if(mysqli_query($con, $sql)){
-      echo "Records inserted successfully.";
-  } else{
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-  }
+    $sql = "INSERT INTO category VALUES ('','$category')";
+    if(mysqli_query($con, $sql)){
+        echo "Records inserted successfully.";
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
 }
 
 ?>

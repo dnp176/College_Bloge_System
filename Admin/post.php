@@ -1,6 +1,15 @@
 <?php 
   include ('header.inc.php');
   include ('../db.inc.php');
+  if(isset($_GET['type']) && $_GET['type'] == 'delete'){
+    $id = $_GET["id"];
+    mysqli_query($con,"delete from blog_content where id=$id") or  die(mysqli_error($con));
+    ?>
+      <script>
+        window.location="post.php";
+      </script>
+    <?php
+  }
 ?>
 
 <div class="container-fluid">
@@ -45,7 +54,7 @@
       <td><img src="<?php echo $row['content_img']; ?>" height="100px" width="100px"></td>
       <td><?php echo $row['category']; ?></td>
       <td><a href="dashboard.php?id=<?php echo $row["id"]; ?>&type=edit">Edit</a></td>
-      <td><a href="category.php?id=<?php echo $row["id"]; ?>&type=delete">Delete</a></td>
+      <td><a href="post.php?id=<?php echo $row["id"]; ?>&type=delete">Delete</a></td>
     </tr>
      <?php
       }

@@ -20,21 +20,22 @@
 
     <div class="form-group">
     <label for="sel1">Select Category:</label>
-    <select class="form-control" id="sel1" name="category">
-      <option>Event</option>
-      <option>Achivement</option>
-      <option>Speciality</option>
-      <!-- <option>Sport & Fitness</option>
-      <option>Program</option>
-      <option>Research or Project</option>
-      <option>Campuse Life</option>
-      <option>Jobs</option> -->
+    <select class="form-control" id="sel1" name="category" required="">
+      <option value="">Select Category</option>
+        <?php
+          $res=mysqli_query($con,"select * from category");
+          while($row=mysqli_fetch_assoc($res)){ 
+          echo "<option>";
+          echo $row["name"];
+          echo "</option>";
+        }
+      ?>
     </select>
   </div>
 
     <div class="form-group">
       <label for="exampleFormControlInput1">Title</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Add blog title" value="<?php echo $title; ?>">
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Add blog title" value="<?php if(isset($title)){ echo $title; } ?>">
     </div>
 
     <div class="form-group">
