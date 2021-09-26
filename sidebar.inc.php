@@ -32,10 +32,10 @@ include ('db.inc.php');
             <div class="tab-news">
                 <ul class="nav nav-pills nav-justified">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#Event">Event</a>
+                        <a class="nav-link active" data-toggle="pill" href="#Webinar">Webinar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#Achivement">Achivement</a>
+                        <a class="nav-link" data-toggle="pill" href="#Event">Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="pill" href="#Speciality">Speciality</a>
@@ -43,6 +43,20 @@ include ('db.inc.php');
                 </ul>
 
                 <div class="tab-content">
+                    <div id="Webinar" class="container tab-pane active">
+                        <?php $res = mysqli_query($con, 'select * from  blog_content where category="Webinar" limit 5 ');
+                            while ($row = mysqli_fetch_array($res)) {
+                         ?> 
+                            <div class="tn-news">
+                                <!-- <div class="tn-img"> -->
+                                    <img src="<?php echo explode('../',$row['content_img'])[1] ?>" width="100px" height="50px" />
+                                <!-- </div> -->
+                                <div class="tn-title">      
+                                    <a href="index.php?id=<?php echo $row['id']; ?>"><?php echo $row['title'] ?></a>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                     <div id="Event" class="container tab-pane active">
                         <?php $res = mysqli_query($con, 'select * from  blog_content where category="Event" limit 5 ');
                             while ($row = mysqli_fetch_array($res)) {
@@ -57,21 +71,7 @@ include ('db.inc.php');
                             </div>
                         <?php } ?>
                     </div>
-                    <div id="Achivement" class="container tab-pane fade">
-                        <?php $res = mysqli_query($con, 'select * from  blog_content where category="Achivement" limit 5');
-                            while ($row = mysqli_fetch_array($res)) {
-                         ?> 
-                            <div class="tn-news">
-                                <!-- <div class="tn-img"> -->
-                                    <img src="<?php echo explode('../',$row['content_img'])[1] ?>" width="100px" height="50px" />
-                                <!-- </div> -->
-                                <div class="tn-title">      
-                                    <a href="index.php?id=<?php echo $row['id']; ?>"><?php echo $row['title'] ?></a>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                    <div id="Speciality" class="container tab-pane fade">
+                    <div id="Speciality" class="container tab-pane active">
                         <?php $res = mysqli_query($con, 'select * from  blog_content where category="Speciality" limit 5 ');
                             while ($row = mysqli_fetch_array($res)) {
                          ?> 
@@ -99,9 +99,9 @@ include ('db.inc.php');
             <h2 class="sw-title">Category</h2>
             <div class="category">
                 <ul>
-                    <li><a href="">Event</a><span>(<?php $value=mysqli_query($con,'SELECT count(*) as event from blog_content where category="Event"');$data=mysqli_fetch_assoc($value);echo $data['event'] ?>)</span>
+                <li><a href="">Event</a><span>(<?php $value=mysqli_query($con,'SELECT count(*) as event from blog_content where category="Event"');$data=mysqli_fetch_assoc($value);echo $data['event'] ?>)</span>
                     </li>
-                    <li><a href="">Achivement</a><span>(<?php $value=mysqli_query($con,'SELECT count(*) as achivement from blog_content where category="Achivement"');$data=mysqli_fetch_assoc($value);echo $data['achivement'] ?>)</span></li>
+                    <li><a href="">Webinar</a><span>(<?php $value=mysqli_query($con,'SELECT count(*) as Webinar from blog_content where category="Webinar"');$data=mysqli_fetch_assoc($value);echo $data['Webinar'] ?>)</span></li>
                     <li><a href="">Speciality</a><span>(<?php $value=mysqli_query($con,'SELECT count(*) as speciality from blog_content where category="Speciality"');$data=mysqli_fetch_assoc($value);echo $data['speciality'] ?>)</span></li>
                     <!-- <li><a href="">Politics</a><span>(65)</span></li>
                     <li><a href="">Lifestyle</a><span>(54)</span></li>
@@ -121,11 +121,11 @@ include ('db.inc.php');
             <h2 class="sw-title">Tags Cloud</h2>
             <div class="tags">
                 <a href="">Event</a>
-                <a href="">Achivement</a>
+                <a href="">Expert talk</a>
                 <a href="">Speciality</a>
-                <!-- <a href="">Politics</a>
-                <a href="">Lifestyle</a>
-                <a href="">Technology</a>
+                <a href="">Celebration</a>
+                <a href="">Webinar</a>
+                <!-- <a href="">Technology</a>
                 <a href="">Trades</a> -->
             </div>
         </div>

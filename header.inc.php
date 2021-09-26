@@ -85,14 +85,16 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Department</a>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Item 1</a>
-                                <a href="#" class="dropdown-item">Sub Item 2</a>
-                                <a href="#" class="dropdown-item"></a>
-                                <a href="#" class="dropdown-item">Sub Item 2</a>
-                                <a href="#" class="dropdown-item"></a>
-                                <a href="#" class="dropdown-item">Sub Item 2</a>
-                                <a href="#" class="dropdown-item"></a>
-                                <a href="#" class="dropdown-item">Sub Item 2</a>
+                                <a href="#" class="dropdown-item">Computer Engineering</a>
+                                <a href="#" class="dropdown-item">Information Techonology</a>
+                                <a href="#" class="dropdown-item">Civil Engineering</a>
+                                <a href="#" class="dropdown-item">Mechanical Engineering</a>
+                                <a href="#" class="dropdown-item">AI & Data Science</a>
+                                <a href="#" class="dropdown-item">ICT</a>
+                                <a href="#" class="dropdown-item">Applied Sciences and Humanities</a>
+                                <a href="#" class="dropdown-item">MCA</a>
+                                <a href="#" class="dropdown-item">MBA</a>
+                                <a href="#" class="dropdown-item">Electronics and Communication</a>
                             </div>
                         </div>
                         <a href="index.php" class="nav-item nav-link active">Blog&nbsp;</a>
